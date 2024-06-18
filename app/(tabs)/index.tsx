@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform, View, Button } from 'react-native';
+import { Image, StyleSheet, Platform, View, Button, Text } from 'react-native';
 
 import Voice from '@react-native-voice/voice'
 
@@ -6,7 +6,11 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
 
-      <Button title='Speech to text' />
+      <View style={styles.card}>
+        <Text>
+          Read my notes
+        </Text>
+      </View>
 
     </View>
   );
@@ -28,5 +32,19 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: 'absolute',
+  },
+  card: {
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'center',
+    top: 20,
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: 'grey',
+    width: '30%',
+    height: "10%",
+    borderRadius: 10,
+    minWidth: '30%',
+    maxHeight: "10%"
   },
 });
