@@ -99,8 +99,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     paddingBottom:20,
     borderRadius: 10,
-    maxHeight: 400, // Set a maximum height for the card to limit its growth
-    overflow: 'hidden', // Hide overflow to prevent card from growing
+    maxHeight: 400, 
+    overflow: 'hidden', 
   },
   heading: {
     color: 'red',

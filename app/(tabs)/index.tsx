@@ -5,13 +5,15 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView >
+      <View style={styles.container}>
 <Image
 style={{    display:'flex'
   ,alignSelf:'center',justifyContent:'center'}}
 source={require("../../assets/images/note-taking.jpg")}>
 
 </Image>
+</View>
     </SafeAreaView>
   );
 }
@@ -20,7 +22,8 @@ const styles = StyleSheet.create({
   container: {
     display:'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+   paddingVertical:160,
   },
   stepContainer: {
     gap: 8,
