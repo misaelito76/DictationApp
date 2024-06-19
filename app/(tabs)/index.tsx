@@ -1,24 +1,24 @@
 import { Image, StyleSheet, Platform, View, Button, Text } from 'react-native';
 
 import Voice from '@react-native-voice/voice'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+<Image
+style={{    display:'flex'
+  ,alignSelf:'center',justifyContent:'center'}}
+source={require("../../assets/images/note-taking.jpg")}>
 
-      <View style={styles.card}>
-        <Text>
-          Read my notes
-        </Text>
-      </View>
-
-    </View>
+</Image>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display:'flex',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   card: {
-    display: "flex",
+   flex:1,
     alignItems: 'center',
     justifyContent: 'center',
-    top: 20,
+    top: 320,
     backgroundColor: 'white',
     borderWidth: 1,
     borderColor: 'grey',
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     height: "10%",
     borderRadius: 10,
     minWidth: '30%',
-    maxHeight: "10%"
+    maxHeight: "10%",
+    position:'absolute'
   },
 });
