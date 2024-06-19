@@ -28,7 +28,7 @@ export default function TabLayout() {
         options={{
           title: 'Talk',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'mic' : 'mic-outline'} color={color} />
+            <TabBarIcon name={focused ? 'headset' : 'mic-outline'} color={color} />
           ),
         }}
       />

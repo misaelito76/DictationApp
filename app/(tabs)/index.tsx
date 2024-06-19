@@ -2,11 +2,24 @@ import { Image, StyleSheet, Platform, View, Button, Text } from 'react-native';
 
 import Voice from '@react-native-voice/voice'
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useState } from 'react';
+import SearchBar from '@/components/searchBar';
 
 export default function HomeScreen() {
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearchTextChange = (text: string) => {
+      setSearchText(text);
+      // Additional logic can go here
+  };
   return (
     <SafeAreaView >
       <View style={styles.container}>
+   <View style={{flexDirection:'row'}}>
+   <Text style={styles.title}>Tasks</Text>
+   <SearchBar onChangeText={handleSearchTextChange} value={searchText} />
+   </View>
+
 <Image
 style={{    display:'flex'
   ,alignSelf:'center',justifyContent:'center'}}
@@ -25,9 +38,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
    paddingVertical:160,
   },
-  stepContainer: {
+  title: {
     gap: 8,
     marginBottom: 8,
+    fontFamily:'Times Roman',
+    fontWeight:'bold',
+    fontSize:24,
+    paddingHorizontal:20
   },
   reactLogo: {
     height: 178,
