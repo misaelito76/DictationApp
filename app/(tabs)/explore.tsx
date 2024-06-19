@@ -51,6 +51,8 @@ export default function TabTwoScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+         <Text style={styles.title}>Save and Organize your notes</Text>
+
       <View style={styles.card}>
         {date ? <Text style={styles.heading}>Date: {date}</Text> : null}
         <ScrollView style={styles.scrollView}>
@@ -118,5 +120,13 @@ const styles = StyleSheet.create({
   buttonImage: {
     width: 50,
     height: 50,
+  },
+  title: {
+    gap: 8,
+    marginBottom: 8,
+    fontFamily:'Times Roman',
+    fontWeight:'bold',
+    fontSize:24,
+    paddingHorizontal:20
   },
 });
