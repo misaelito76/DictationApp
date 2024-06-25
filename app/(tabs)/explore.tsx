@@ -3,13 +3,15 @@ import { StyleSheet, Image, Pressable, View, Text, ScrollView } from 'react-nati
 import Voice from '@react-native-voice/voice';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
-import { increment } from '../store/favs';
+import { increment } from '../store/counterSlice';
+import CustomModal from '@/components/modal';
 
 export default function TabTwoScreen() {
   const [speechStarted, setSpeechStarted] = useState(false);
     const [results, setResults] = useState<string[]>([]); // Specify type for results array
   const [date, setDate] = useState("");
-  const dispatch = useDispatch()
+  const [addedNote,setAddedNote]=useState(false)
+ // const dispatch = useDispatch()
 
   const startSpeech = async () => {
     try {
@@ -28,7 +30,7 @@ export default function TabTwoScreen() {
       setSpeechStarted(false);
       setDate("");
       setResults([]);
-      dispatch(increment())
+      //dispatch(increment())
     } catch (error) {
       console.error("Error stopping speech recognition: ", error);
     }
@@ -84,6 +86,7 @@ export default function TabTwoScreen() {
             />
           </Pressable>
         )}
+        {/* <CustomModal/> */}
       </View>
     </SafeAreaView>
   );
