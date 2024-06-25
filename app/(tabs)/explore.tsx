@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Image, Pressable, View, Text, ScrollView } from 'react-native';
 import Voice from '@react-native-voice/voice';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useDispatch, useSelector } from 'react-redux';
+import { increment } from '../store/counterSlice';
+import CustomModal from '@/components/modal';
 
 export default function TabTwoScreen() {
   const [speechStarted, setSpeechStarted] = useState(false);
-  const [results, setResults] = useState([]);
+    const [results, setResults] = useState<string[]>([]); // Specify type for results array
   const [date, setDate] = useState("");
+  const [addedNote,setAddedNote]=useState(false)
+ // const dispatch = useDispatch()
 
   const startSpeech = async () => {
     try {
@@ -25,11 +30,12 @@ export default function TabTwoScreen() {
       setSpeechStarted(false);
       setDate("");
       setResults([]);
+      //dispatch(increment())
     } catch (error) {
       console.error("Error stopping speech recognition: ", error);
     }
   };
-
+  const count = useSelector((state:any) => state.counter.value)
   const onSpeechResults = (event:any) => {
     setResults(event.value);
   };
@@ -42,6 +48,7 @@ export default function TabTwoScreen() {
   };
 
   useEffect(() => {
+    console.log("Idices :",count)
     Voice.onSpeechResults = onSpeechResults;
     Voice.onSpeechError = onSpeechError;
     return () => {
@@ -52,6 +59,7 @@ export default function TabTwoScreen() {
   return (
     <SafeAreaView style={styles.container}>
          <Text style={styles.title}>Save and Organize your notes</Text>
+         <Text style={{alignSelf:'flex-start',paddingLeft:50}}>Today's notes: {count}</Text>
 
       <View style={styles.card}>
         {date ? <Text style={styles.heading}>Date: {date}</Text> : null}
@@ -78,6 +86,7 @@ export default function TabTwoScreen() {
             />
           </Pressable>
         )}
+        {/* <CustomModal/> */}
       </View>
     </SafeAreaView>
   );
